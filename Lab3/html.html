@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+    <script>
+        function add()
+        {
+            let toDoList = document.getElementById("Table");
+            let taskName = document.getElementById("taskName");
+            let row = toDoList.insertRow(-1);
+            let checkBox = row.insertCell(0);
+            checkBox.innerHTML = '<input type = "checkbox">';
+            let taskBox = row.insertCell(1);
+            taskBox.textContent = taskName.value;
+            let deleteBox = row.insertCell(2);
+            deleteBox.innerHTML = '<button onclick = "deleteRow(this)">Delete</button>';
+        }
+        function deleteRow(button)
+        {
+            button.parentNode.parentNode.parentNode.removeChild(button.parentNode.parentNode);
+        }
+    </script>
+</head>
+<body>
+    <center><h1 >ToDo List</h1>
+    <input type="text" id="taskName" placeholder="New Task">
+    <button onclick="add()">Add</button>
+    </center>
+    <table id="Table" border>
+            <tr>
+                <td>Done</td>
+                <td>Action Name</td>
+                <td>Delete</td>
+            </tr>
+    </table>
+</body>
+</html>

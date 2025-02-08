@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+</head>
+<body>
+    <script>
+        console.log("Hello, world");
+        console.log(15+16);
+        console.log("15"+16);
+        console.log(15<16);
+        console.log(15>16);
+        console.log(15==15);
+        prompt("prompt");
+        confirm("confirm")
+        if (5 == 6)
+        {  
+            console.log("5 is 6");
+        }
+        else console.log("5 is not 6");
+        console.log(5 == 6 ? "5 is 6" : "5 is not 6");
+        x = 5;
+        while (x > 0)
+        {
+            x-=1;
+            console.log(x); 
+        }
+        for (x = 0;x<5;x++)
+        {
+            console.log(x);
+        }
+        input = "Spring";
+        // Outputs order of quarter, given in input
+        switch(input)
+        {
+            case "Winter" : 
+                console.log(1);
+                break;
+            case "Spring" : 
+                console.log(2);
+                break;
+            case "Summer" : 
+                console.log(3);
+                break;
+            case "Autumn" : 
+                console.log(4);
+                break;
+        }
+        let person = {
+            height : 180,
+            age : 15
+        };
+        console.log(person.height);
+        let admin = person;
+        admin.height = 170;
+        console.log(person.height);
+        array = [5,6,3,4,5];
+        for (i = 0;i<5;i++)
+        {
+            console.log(array[i]);
+        }
+    </script>
+</body>
+</html>
