@@ -1,0 +1,4 @@
+<p>Albums:</p>
+<li *ngFor = "let item of jsonArray">{{item[0]}}.<a href = "/albums/{{item[0]}}">{{item[1]}}</a><button (click) = 'DeleteAlbum(item[0])' onclick = 'this.parentNode.parentNode.removeChild(this.parentNode)'>Delete this Album</button></li>
+<br>
+<button (click) = 'NewAlbum()'>Add new album with title:</button><input type = 'text' id = 'NewAlbumInput' value = 'New Album Title'>
