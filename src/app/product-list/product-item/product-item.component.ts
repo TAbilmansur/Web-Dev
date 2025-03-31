@@ -7,25 +7,18 @@ import { Component , Input} from '@angular/core';
   styleUrl: './product-item.component.css'
 })
 export class ProductItemComponent {
-  @Input() INPUT:[string,string,string,number,string,number] = ["","","",0,"",0];
-  source:string = "";
+  @Input() INPUT:[string,number,string,number,boolean] = ['',0,'',0,false]
   name:string = "";
-  description:string = "";
-  rating:number = 0;
-  kaspiLink:string = "";
   price:number = 0;
-  likes:number = 0;
+  description:string = "";
+  count:number = 0;
+  is_active:boolean = true;
   ngOnInit()
   {
-    this.source = this.INPUT[0];
-    this.name = this.INPUT[1];
+    this.name = this.INPUT[0];
+    this.price = this.INPUT[1];
     this.description = this.INPUT[2];
-    this.rating = this.INPUT[3];
-    this.kaspiLink = this.INPUT[4];
-    this.price = this.INPUT[5];
-  }
-  Like(): void{
-    console.log(this.rating);
-    this.likes = this.likes+1;
+    this.count = this.INPUT[3];
+    this.is_active = this.INPUT[4];
   }
 }

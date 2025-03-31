@@ -1,21 +1,31 @@
 import { Component , Input } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { Service } from '../Service';
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-product-list',
+  providers:[Service],
   imports: [ProductItemComponent, CommonModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
-  @Input() ItemsString:string[] = [];
-  items:[string,string,string,number,string,number][] = [];
+  constructor(private service: Service) {}
+
+  @Input() category:number = 0;
+  products:[string,number,string,number,boolean][] = []
   ngOnInit()
   {
-    for (let item of this.ItemsString)
-    {
-      let splitted = item.split('~');
-      this.items.push([splitted[0],splitted[1],splitted[2],Number(splitted[3]),splitted[4],Number(splitted[5])]);
-    }
+    this.service.GetProductsByCategory(this.category.toString()).subscribe
+    (
+      (data) =>
+      {
+        for (let i = 0;i<data.length;i++)
+        {
+          this.products.push([data[i]['name'],data[i]['price'],data[i]['description'],data[i]['count'],data[i]['is_active']])
+        }
+      }
+    )
   }
 }

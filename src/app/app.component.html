@@ -1,1 +1,6 @@
-<router-outlet/>
+Categories:
+<button *ngFor = "let item of categories" (click) = 'ClickFunction(item)'>{{item}}<br></button>
+
+<div display = 'none'>
+<app-product-list *ngFor = "let item of indices" id = {{categories[item]}} [category]=item></app-product-list>
+</div>
